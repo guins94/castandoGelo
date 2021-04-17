@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <%- include('partials/head') %>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div id="app">
+      {{ message }}
+    </div>
+  </body>
+</html>
+<script>
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Castando Gelo!'
+  }
+})
+</script>
