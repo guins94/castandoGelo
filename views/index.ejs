@@ -10,11 +10,8 @@
       <v-app-bar
         absolute
         color="#17223d"
-        shrink-on-scroll
-        dark
-        src="/images/vitrine.png"
-        fade-img-on-scroll
-        scroll-target="#scrolling-techniques-1"
+        elevate-on-scroll
+        scroll-target="#scrolling-techniques-7"
       >
         <template v-slot:img="{ props }">
           <v-img
@@ -23,103 +20,98 @@
           ></v-img>
         </template>
   
-        <v-app-bar-nav-icon></v-app-bar-nav-icon>
-  
-  
-        <v-spacer></v-spacer>
-  
-        <v-btn icon>
-          <v-icon>mdi-magnify</v-icon>
-        </v-btn>
-  
-        <v-btn icon @click="darkMode()">
-          <v-icon>mdi-heart</v-icon>
-        </v-btn>
-  
-        <v-btn icon>
-          <v-icon>mdi-dots-vertical</v-icon>
-        </v-btn>
-  
-        <template v-slot:extension>
-          <v-tabs v-model="tab" align-with-title>
-            <v-tab>Episódios</v-tab>
-            <v-tab>Sobre</v-tab>
-            <v-tab>Contato</v-tab>
-          </v-tabs>
-        </template>
         
+        <v-tabs v-model="tab" align-with-title>
+          <v-tab>Episódios</v-tab>
+          <v-tab>Sobre</v-tab>
+          <v-tab>Contato</v-tab>
+        </v-tabs>
+        <v-spacer></v-spacer>
+
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+
+      <v-btn icon @click="darkMode()">
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-dots-vertical</v-icon>
+      </v-btn>
       </v-app-bar>
 
-      
-      <v-sheet
-        id="scrolling-techniques-1"
-        class="overflow-y-auto pt-100"
-        max-height="600" 
-      >
-        <v-container style="height: 1000px;"> 
-          <v-tabs-items v-model="tab">
-            <v-tab-item>
-              <v-card flat>
-                <v-card-text>teste</v-card-text>
-                <v-card-text>teste</v-card-text>
-                <v-card-text>teste</v-card-text>
-                <v-card-text>teste</v-card-text>
-                <v-card-text>teste</v-card-text>
-                <v-card-text>teste</v-card-text>
-                <v-card-text>teste</v-card-text>
-              </v-card>
-            </v-tab-item>
-            <v-tab-item>
-              <v-container>
-                <v-row>
-                  <v-col
-                    v-for="i in 6"
-                    :key="i"
-                    cols="12"
-                    md="4"
-                  >
-                    <v-img
-                      :src="`https://picsum.photos/500/300?image=${i * 2 * 5 + 10}`"
-                      :lazy-src="`https://picsum.photos/10/6?image=${i * 2 * 5 + 10}`"
-                      aspect-ratio="1"
-                    ></v-img>
-                  </v-col>
-                </v-row>
-              </v-container>
-            </v-tab-item>
-            <v-tab-item>
-              <v-banner
-                single-line
-                :sticky="false"
-              >
-                We can't save your edits while you are in offline mode.
+      <v-tabs-items v-model="tab" style="padding-top: 112px;" >
+        <v-tab-item>
+          <v-card class="black ma-10" height="150"></v-card>
+          <v-container>
+            <p class="text-h4">Procure por episódios</p>
+            <v-text-field
+              class="text-h4"
+              label=""
+              color="success"
+              rounded
+              solo
+            ></v-text-field>
+          </v-container>
+          <v-card flat>
+            
+          </v-card>
+        </v-tab-item>
+        <v-tab-item>
+          <v-row>
+            <v-col
+              v-for="i in 6"
+              :key="i"
+              cols="12"
+              md="4"
+            >
+              <v-img
+                :src="`https://picsum.photos/500/300?image=${i * 2 * 5 + 10}`"
+                :lazy-src="`https://picsum.photos/10/6?image=${i * 2 * 5 + 10}`"
+                aspect-ratio="1"
+              ></v-img>
+            </v-col>
+          </v-row>
+        </v-tab-item>
+        <v-tab-item>
+          <v-container>
+            <p class="text-h4">CONTATO</p>
+            <p class="text-subtitle-1">Contato comercial: <strong>castandogelo@gmail.com</strong></p>
+            <v-card max-width="434" tile>
+              <v-avatar class="rounded-xl" size="164">
+                <img
+                  src="https://cdn.vuetifyjs.com/images/john.jpg"
+                  alt="John"
+                >
+              </v-avatar>
+              <p class="text-subtitle-1">Guilherme Neves Souza</p>
+              <v-icon>mdi-instagram </v-icon><p class="text-subtitle-1">guins94</p>
+            </v-card>
+          </v-container>
+        </v-tab-item>
+      </v-tabs-items>
 
-                <template v-slot:actions>
-                  <v-btn
-                    text
-                    color="deep-purple accent-4"
-                  >
-                    Get Online
-                  </v-btn>
-                </template>
-              </v-banner>
-            </v-tab-item>
-          </v-tabs-items>
-        </v-container>
-      </v-sheet>
-
-
-    
-      <v-footer>
-        <!-- -->
-      </v-footer>
     </v-app>
   </body>
 </html>
 <script>
 var app = new Vue({
   el: '#app',
-  vuetify: new Vuetify(),
+  vuetify:  new Vuetify({
+        theme: { dark: false, 
+          themes: {
+            light: {
+              castBrown: '#99751C',
+              castLightBlue: '#5780E6'
+            },
+            dark: {
+              castBrown: '#E6BC57',
+              castLightBlue: '#5780E6'
+            },
+          },
+       },
+      }),
   data: {
     tab: null,
     message: 'Hello Castando Gelo!'
